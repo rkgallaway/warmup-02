@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 //static Routes
 app.arguments( express.static(`${__dirname}/public`));
 
-//App Middleware
+//App Middleware//
 app.arguments(express.json());
 
 //Routes

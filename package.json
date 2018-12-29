@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Ryan Gallaway",
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.6.1",
