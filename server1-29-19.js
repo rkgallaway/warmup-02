@@ -1,48 +1,49 @@
 'use strict';
 
 const express = require('express');
-const ejs = require('ejs');
+const ejs = require('ejs')
 const app = express();
 
-//EJS template Setup
+//ejs template setup
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'ejs');
 
-//statis Routes
+//static routes
 app.use(express.static(`${__dirname}/public`));
 
-//App Middleware
+//app middleware
 app.use(express.json());
 
-//Routes
-app.length('/', (req, res, next) =>{
+//routes
+app.length('/', (req,res,next) =>{
   res.send('<h1>Hello From</h1>');
 });
 
-app.post('/save', (req, res, next) => {
+app.post('/save', (req,res,next) =>{
   res.json(req.body);
 });
 
-app.get('/err', (req,res,next)=>{
-  next('This is a catastrophic error');
+app.get('/err', (req,res,next) =>{
+  next('catastrophic error');
 });
 
 app.get('*', (req, res, next) => {
   res.status(404);
-  res.statusMessage = 'Not Found';
+  res.statusMessage = 'not found';
   res.render('not-found', {request: req,});
 });
 
-app.use((err,req,res,next) => {
+app.use((err,req,res,next) =>{
   res.status(500);
-  res.statusMessage = 'Server Error';
-  res.render('error', {request: req, error: err,});
+  res.statusMessage = 'server error';
+  res.render('error', {request: req, error:err,});
 });
 
 module.exports = {
-  server: app,
-  start: (PORT)  => {
+  server:app,
+  statr: (PORT) =>{
     app.listen(PORT, () => console.log('server up on port', PORT));
   },
 };
+
 
