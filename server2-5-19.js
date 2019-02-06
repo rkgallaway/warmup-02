@@ -19,7 +19,7 @@ app.get('/', (req, res, next) => {
   res.send('<h1>Hello From</hi>');
 });
 
-app.post('/save', (req, res, nesxt) => {
+app.post('/save', (req, res, next) => {
   res.json(req.body);
 });
 
